@@ -1,1 +1,1 @@
-#lang racket/gui
+#lang typed/racket/gui
