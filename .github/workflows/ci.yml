@@ -17,4 +17,6 @@ jobs:
           distribution: full
           variant: ${{ matrix.racket-variant }}
           version: ${{ matrix.racket-version }}
-      - run: xvfb-run racket gui-lang.rkt
+      - run: |
+             sudo raco pkg install --auto -i --no-setup --skip-installed typed-racket-test
+      - run: xvfb-run racket -l typed-racket-test -- --just `racket -e '(displayln (collection-file-path "succeed/gui-lang.rkt" "typed-racket-test"))'`
